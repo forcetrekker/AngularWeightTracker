@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Entry } from '../entry';
+import { EntriesService } from '../entries.service';
 
 @Component({
   selector: 'app-home',
@@ -9,16 +10,11 @@ import { Entry } from '../entry';
 export class HomeComponent implements OnInit {
   entries: Entry[];
 
-  title = 'hands-on';
-
-  constructor() { }
+  constructor(private entriesService: EntriesService) { }
 
   ngOnInit() {
-    this.entries = [{
-      weight: 70,
-      date: new Date(),
-      bodyFat: 22
-    }];
+    this.entriesService.getEntries()
+      .subscribe(entries => this.entries = entries);
   }
 
 }

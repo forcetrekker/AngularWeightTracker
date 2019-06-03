@@ -6,6 +6,7 @@
                 <th scope="col">Weight</th>
                 <th scope="col">Date</th>
                 <th scope="col">Body Fat</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -14,6 +15,14 @@
                 <td>{{entry.weight | number}} kg</td>
                 <td>{{entry.date | date: 'dd-MM-yyyy'}}</td>
                 <td>{{entry.bodyFat}} %</td>
+                <td>
+                    <button class="btn btn-primary btn-sm mr-1" [routerLink]="['/entry/', entry.id]">
+                        <i class="fa fa-pencil"></i>
+                    </button>
+                    <button class="btn btn-danger btn-sm">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </td>
             </tr>
         </tbody>
     </table>

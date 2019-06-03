@@ -1,3 +1,30 @@
-<p>
-  entry-detail works!
-</p>
+<form class="border p-3" #newEntryForm="ngForm">
+    <h3>New Entry</h3>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="record-id">Id</label>
+            <input type="text" class="form-control" id="record-id" placeholder="Id"
+            [(ngModel)]="entry.id" name="id">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="weight">Weight</label>
+            <input type="number" class="form-control" id="weight" placeholder="Weight"
+            [(ngModel)]="entry.weight" name="weight">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="date">Date</label>
+            <input type="date" class="form-control" id="date" placeholder="Date"
+            [(ngModel)]="entry.date" name="date">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="body-fat">Body Fat</label>
+            <input type="number" class="form-control" id="body-fat" placeholder="Body Fat"
+            [(ngModel)]="entry.bodyFat" name="bodyFat">
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary mr-1" (click)="createNewEntry();">Save</button>
+    <button class="btn btn-danger" (click)="newEntryForm.reset();">Cancel</button>
+</form>

@@ -1,5 +1,4 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
 import { Entry } from '../entry';
 
 @Component({
@@ -18,7 +17,6 @@ export class NewEntryComponent implements OnInit {
   }
 
   createNewEntry() {
-    console.log("sending data");
     this.newEntry.emit(this.entry);
     this.entry = new Entry();
   }

@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
   }
 
   newEntryHandler(entry: Entry) {
-    console.log("entry", entry);
     this.entries.push(entry);
   }
 

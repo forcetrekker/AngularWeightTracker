@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { FormsModule }   from '@angular/forms';
+import { Entry } from '../entry';
 
 @Component({
   selector: 'app-new-entry',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewEntryComponent implements OnInit {
 
-  constructor() { }
+  @Output() newEntry: EventEmitter<Entry> = new EventEmitter<Entry>();
 
+  entry: Entry = new Entry();
+  constructor() { }
+  
   ngOnInit() {
+  }
+
+  createNewEntry() {
+    console.log("sending data");
+    this.newEntry.emit(this.entry);
+    this.entry = new Entry();
   }
 
 }

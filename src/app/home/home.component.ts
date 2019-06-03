@@ -17,4 +17,9 @@ export class HomeComponent implements OnInit {
       .subscribe(entries => this.entries = entries);
   }
 
+  newEntryHandler(entry: Entry) {
+    console.log("entry", entry);
+    this.entries.push(entry);
+  }
+
 }

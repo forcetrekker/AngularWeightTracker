@@ -1,8 +1,10 @@
 <div class="container">
+    
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
+                <th scope="col">Action</th>
                 <th scope="col">Weight</th>
                 <th scope="col">Date</th>
                 <th scope="col">Body Fat</th>
@@ -11,12 +13,17 @@
         <tbody>
             <tr *ngFor="let entry of entries">
                 <th scope="row">{{entry.id}}</th>
+                <td>
+                    <button class="btn btn-primary btn-sm" [routerLink]="['/entry/', entry.id]">
+                        <i class="fa fa-info"></i>
+                    </button>
+                </td>
                 <td>{{entry.weight | number}} kg</td>
                 <td>{{entry.date | date: 'dd-MM-yyyy'}}</td>
-                <td>{{entry.bodyFat}} %</td>
+                <td>{{entry.bodyFat | percent}}</td>
             </tr>
         </tbody>
     </table>
-
+    
     <app-new-entry (newEntry)="newEntryHandler($event)"></app-new-entry>
 </div>

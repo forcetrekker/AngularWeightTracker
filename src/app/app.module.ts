@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,10 +10,12 @@ import { EntryDetailComponent } from './entry-detail/entry-detail.component';
 import { NewEntryComponent } from './new-entry/new-entry.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'entry/:id', component: EntryDetailComponent },
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -28,6 +30,7 @@ const appRoutes: Routes = [
     PageNotFoundComponent
   ],
   imports: [
+    HttpClientModule,
     RouterModule.forRoot(
       appRoutes
     ),

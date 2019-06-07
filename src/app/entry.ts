@@ -1,5 +1,5 @@
 export class Entry {
-    id: string;
+    id: number;
     weight: number;
     date: Date;
     bodyFat: number;

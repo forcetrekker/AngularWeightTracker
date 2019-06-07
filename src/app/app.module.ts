@@ -10,6 +10,7 @@ import { EntryDetailComponent } from './entry-detail/entry-detail.component';
 import { NewEntryComponent } from './new-entry/new-entry.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
     PageNotFoundComponent
   ],
   imports: [
+    HttpClientModule,
     RouterModule.forRoot(
       appRoutes
     ),
